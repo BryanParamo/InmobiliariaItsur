@@ -1,0 +1,55 @@
+    /* Sección que contiene imagen y texto a un lado */
+  .property-info {
+    display: flex;               /* Para alinear imagen y texto en fila */
+    align-items: flex-start;     /* Alineación superior */
+    gap: 20px;                   /* Espacio entre imagen y texto */
+    margin-top: 20px;            /* Separación respecto al contenido anterior */
+  }
+  
+  /* Ajustes de la imagen secundaria */
+  .property-image img,
+  .imagen-propiedad2 {
+    width: 300px;         /* Ancho fijo */
+    height: auto;         /* Mantiene la proporción */
+    object-fit: cover;    /* Recorta si la imagen es muy alta */
+    border-radius: 4px;   /* Esquinas redondeadas opcionales */
+    display: block;
+  }
+  
+  /* Contenedor de texto */
+  .property-details {
+    flex: 1;              /* Ocupa el espacio restante a la derecha */
+  }
+  
+  /* Estilos para el título, precio, etc. */
+  .property-details h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  
+  .price {
+    font-weight: bold;
+    color: #333;          /* Ajusta el color a tu gusto */
+    margin-bottom: 10px;
+  }
+  
+  .description,
+  .location {
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  
+  /* Botón de "Reservar" */
+  .btn-reservar {
+    background-color: var(--oro-calido);
+    color: var(--negro-carbon);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-reservar:hover {
+    background-color: #c1956c; /* Un poco más oscuro que D4A373 */
+  }
