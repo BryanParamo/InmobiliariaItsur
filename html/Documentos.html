@@ -3,24 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Documentos</title>
-  <!-- Enlace a Font Awesome (opcional para íconos) -->
-  <link rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
-        integrity="sha512-PKfa2Kzj5lWHryCqKJGPzGFTco/AKAS1u7+ftTwQplJ+zSRX8o9i7tMdWbpYmmVI2bnhrR2b6+5BU2/5FBz5jw==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Tu archivo de estilos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Enlace a los estilos específicos de Documentos -->
+  <link rel="stylesheet" href="../estilos/documentos.css">
   <link rel="stylesheet" href="../estilos/global.css">
 </head>
 <body>
   <!-- Barra lateral (sidebar) -->
   <aside class="sidebar">
     <div class="sidebar-logo">
-      <!-- Aquí podrías poner un logo o simplemente texto -->
       <h2>Mi Logo</h2>
     </div>
     <nav class="sidebar-nav">
       <ul>
-        <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="../index.html"><i class="fas fa-home"></i> Inicio</a></li>
         <li><a href="propiedades.html"><i class="fas fa-building"></i> Propiedades</a></li>
         <li><a href="Clientes.html"><i class="fas fa-users"></i> Clientes</a></li>
         <li><a href="Marketing.html"><i class="fas fa-chart-line"></i> Marketing</a></li>
@@ -35,9 +32,29 @@
     <!-- Barra superior (top bar) -->
     <header class="top-bar">
       <div class="bienvenido">Documentos</div>
-      <div class="iniciar-sesion"><a href="#">Iniciar Sesión</a></div>
+      <div class="iniciar-sesion"><a href="login.html">Iniciar Sesión</a></div>
     </header>
-  </main>
 
+    <!-- Sección de Documentos -->
+    <section class="documentos-section">
+      <h1>Almacena y organiza tus documentos importantes</h1>
+      <p>Guarda tus contratos, escrituras y documentos importantes de forma segura y accesible.</p>
+      <div class="document-upload">
+        <button class="upload-btn">Subir Documento</button>
+      </div>
+
+      <div class="document-list">
+        <h2>Documentos Guardados</h2>
+        <div class="document-item">
+          <i class="fas fa-file-alt fa-3x"></i>
+          <p>Contrato de Compra</p>
+        </div>
+        <div class="document-item">
+          <i class="fas fa-file-alt fa-3x"></i>
+          <p>Escritura de Propiedad</p>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>

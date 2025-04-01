@@ -1,5 +1,5 @@
 /****************************************** 
- * style.css (Archivo global)
+ * style.css
  ******************************************/
 
 :root {
@@ -174,4 +174,6 @@ body {
 .btn-interesa:hover {
   background-color: #c1956c; 
 }
+
+
 

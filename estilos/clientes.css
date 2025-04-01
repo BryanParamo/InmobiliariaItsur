@@ -1,0 +1,246 @@
+/******************************************
+ * clientes.css
+ ******************************************/
+
+/* Variables de color
+:root {
+  --negro-carbon: #1C1C1C;
+  --verde-azulado: #184A45;
+  --oro-calido: #D4A373;
+  --blanco-suave: #F5F5F5;
+  --gris-frio: #8D99AE;
+}
+*/
+
+/* ========== Sección general de la página ========== */
+.clientes-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Contenedor que agrupa la lista y el detalle en columnas */
+.clientes-container {
+  display: flex;       /* Coloca los hijos en fila */
+  gap: 20px;           /* Espacio horizontal entre columnas */
+  margin-top: 20px;
+}
+
+/* Opcional: Estilos específicos para el modal de confirmación */
+#confirmModal .modal-contenedor {
+  width: 400px;
+  text-align: center;
+}
+
+#confirmModal p {
+  margin: 20px 0;
+}
+
+
+/* Lista de clientes (columna izquierda) */
+.clientes-list {
+  background-color: var(--oro-calido);
+  padding: 20px;
+  border-radius: 8px;
+  width: 450px;  
+  flex-shrink: 0;
+}
+
+/* Panel de detalles (columna derecha) */
+.detalle-cliente {
+  flex: 1;
+  background-color: var(--blanco-suave);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.detalle-cliente h2 {
+  margin-bottom: 10px;
+}
+.detalle-cliente p {
+  margin-bottom: 10px;
+}
+
+/* Cada cliente en la lista */
+.cliente-item {
+  background-color: var(--blanco-suave);
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+.cliente-item:hover {
+  background-color: var(--gris-frio);
+}
+
+/* Contenedor para icono y nombre */
+.cliente-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Contenedor para botones */
+.cliente-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Ícono de cliente (imagen) */
+.icono-cliente {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Botón para editar */
+.btn-editar {
+  background-color: var(--gris-frio);
+  color: var(--blanco-suave);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 0.9rem;
+}
+.btn-editar:hover {
+  background-color: var(--oro-calido);
+}
+
+/* Botón para eliminar */
+.btn-eliminar {
+  background-color: #d9534f !important;
+  color: #fff !important;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 0.9rem;
+}
+.btn-eliminar:hover {
+  background-color: #c9302c !important;
+}
+
+/* Botón para cerrar (en el detalle, por ejemplo) */
+.btn-cerrar {
+  background-color: #999 !important;
+  color: #fff !important;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+  font-size: 0.9rem;
+}
+.btn-cerrar:hover {
+  background-color: #666 !important;
+}
+
+/* ========== Modal para Clientes ========== */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: none; /* oculto por defecto */
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.modal-overlay.active {
+  display: flex;
+}
+
+/* Contenedor principal del modal */
+.modal-contenedor {
+  background-color: var(--blanco-suave);
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px; /* Ajusta a tu gusto */
+  max-height: 80vh;
+  overflow-y: auto; /* Permite scroll cuando sea necesario */
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Título del modal */
+.modal-contenedor h2 {
+  margin-bottom: 10px;
+}
+
+/* Modal body (si decides separar el contenido scrollable) */
+.modal-body {
+  margin-bottom: 20px;
+}
+
+/* Botón para cerrar (la X) */
+.modal-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--negro-carbon);
+}
+
+/* Formulario en el modal: se usa CSS Grid para dos columnas */
+.modal-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+.modal-form label {
+  font-weight: bold;
+}
+.modal-form input,
+.modal-form select {
+  padding: 5px;
+  border: 1px solid var(--gris-frio);
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Botón de guardar en el modal */
+.btn-agregar-prop {
+  background-color: var(--verde-azulado);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 0.9rem;
+}
+.btn-agregar-prop:hover {
+  background-color: #1e5b51;
+}
+
+/* ========== Validación en inputs ========== */
+.modal-form input.input-valid {
+  border: 2px solid green !important;
+}
+.modal-form input.input-invalid {
+  border: 2px solid red !important;
+}
+.validation-message {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 2px;
+  display: block;
+}

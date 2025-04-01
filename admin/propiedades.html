@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
-  <title>Propiedades</title>
-  <!-- Enlace a Font Awesome (opcional para íconos) -->
-  <link rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
-        integrity="sha512-PKfa2Kzj5lWHryCqKJGPzGFTco/AKAS1u7+ftTwQplJ+zSRX8o9i7tMdWbpYmmVI2bnhrR2b6+5BU2/5FBz5jw==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>PropiedadesAdmin</title>
+  <!-- Font Awesome (opcional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Tu archivo de estilos -->
   <link rel="stylesheet" href="../estilos/global.css">
+  <link rel="stylesheet" href="../estilos/propiedades.css">
 </head>
+
 <body>
   <!-- Barra lateral (sidebar) -->
   <aside class="sidebar">
     <div class="sidebar-logo">
-      <!-- Aquí podrías poner un logo o simplemente texto -->
       <h2>Mi Logo</h2>
     </div>
     <nav class="sidebar-nav">
@@ -34,10 +33,94 @@
   <main class="main-content">
     <!-- Barra superior (top bar) -->
     <header class="top-bar">
-      <div class="bienvenido">Propiedades</div>
-      <div class="iniciar-sesion"><a href="#">Iniciar Sesión</a></div>
+      <div class="bienvenido">Propiedades disponibles</div>
+      <div class="iniciar-sesion"><a href="../html/login.html">Iniciar Sesión</a></div>
     </header>
+
+    <!-- Sección principal de contenido -->
+    <section class="content-section">
+      <h1>Propiedades disponibles</h1>
+      <!-- Agregamos id="btnAbrirModal" para que el JS lo reconozca -->
+      <button class="btn-agregar-prop" id="btnAbrirModal">Agregar Propiedad</button>
+
+      <!-- Tarjeta 1 -->
+      <div class="property-card">
+        <img src="../img/prop2.jpg" alt="Casa 1" class="property-image">
+        <div class="property-details">
+          <p>Línea 1 de texto descriptivo (precio, cuartos, metros, etc.).</p>
+          <p>Línea 2 de texto descriptivo.</p>
+          <p>Línea 3 de texto descriptivo.</p>
+          <button class="btn-interesa-green">Me interesa!</button>
+          <!-- Llamamos a la función abrirModal('Editar') al hacer clic -->
+          <button class="btn-editar" onclick="abrirModal('Editar')">Editar</button>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="property-card">
+        <img src="../img/prop3.jpg" alt="Casa 2" class="property-image">
+        <div class="property-details">
+          <p>Línea 1 de texto descriptivo.</p>
+          <p>Línea 2 de texto descriptivo.</p>
+          <p>Línea 3 de texto descriptivo.</p>
+          <button class="btn-interesa-green">Me interesa!</button>
+          <button class="btn-editar" onclick="abrirModal('Editar')">Editar</button>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="property-card">
+        <img src="../img/prop4.jpg" alt="Casa 2" class="property-image">
+        <div class="property-details">
+          <p>Línea 1 de texto descriptivo.</p>
+          <p>Línea 2 de texto descriptivo.</p>
+          <p>Línea 3 de texto descriptivo.</p>
+          <button class="btn-interesa-green">Me interesa!</button>
+          <button class="btn-editar" onclick="abrirModal('Editar')">Editar</button>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!-- ========== MODAL (oculto por defecto) ========== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-contenedor">
+      <h2 id="modalTitulo">Agregar Propiedad</h2>
+      <div class="modal-body">
+        <!-- Imagen (solo representación) -->
+        <div class="modal-imagen">
+          <img src="../img/placeholder.png" alt="Imagen Propiedad" id="previewImagen">
+        </div>
+
+        <!-- Formulario de datos -->
+        <div class="modal-form">
+          <label for="tituloProp">Título</label>
+          <input type="text" id="tituloProp">
+
+          <label for="precioProp">Precio</label>
+          <input type="text" id="precioProp">
+
+          <label for="direccionProp">Dirección</label>
+          <input type="text" id="direccionProp">
+
+          <label for="descripcionProp">Descripción</label>
+          <textarea id="descripcionProp"></textarea>
+
+          <!-- Nuevo input para la imagen -->
+          <label for="imagenProp">Seleccionar imagen</label>
+          <input type="file" id="imagenProp" accept="image/*">
+
+          <!-- Botón de guardar o agregar -->
+          <button class="btn-agregar" id="btnAgregarProp">Agregar</button>
+        </div>
+
+        <!-- Botón para cerrar -->
+        <span class="modal-cerrar" id="modalCerrar">&times;</span>
+      </div>
+    </div>
+
+    <!-- Tu script con las funciones de abrir y cerrar modal -->
+    <script src="../js/propiedades.js"></script>
 </body>
+
 </html>

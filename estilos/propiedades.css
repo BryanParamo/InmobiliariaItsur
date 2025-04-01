@@ -46,3 +46,173 @@
     background-color: #1e5b51; /* Un tono más oscuro */
   }
   
+
+  .btn-editar {
+    background-color: var(--gris-frio);  /* Ajusta el color que desees */
+    color: var(--blanco-suave);         /* Texto en blanco (o el que prefieras) */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;                  /* Espacio a la izquierda para separarlo */
+    transition: background-color 0.3s;
+  }
+  
+  .btn-editar:hover {
+    background-color: var(--oro-calido); 
+  }
+  
+
+  /* Contenedor para el título y el botón "Agregar Propiedad" */
+.header-propiedades {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Título a la izq, botón a la der */
+  margin-bottom: 20px;
+}
+
+/* Botón para agregar propiedad */
+.btn-agregar-prop {
+  background-color: var(--verde-azulado); /* Usa el color que desees */
+  color: #fff;                           /* Texto en blanco */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-agregar-prop:hover {
+  background-color: #1e5b51; /* Un tono más oscuro que var(--verde-azulado) */
+}
+
+
+/* Contenedor para título + botón "Agregar Propiedad" */
+.header-propiedades {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Botón de "Agregar Propiedad" */
+.btn-agregar-prop {
+  background-color: var(--verde-azulado);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-agregar-prop:hover {
+  background-color: #1e5b51;
+}
+
+/* Modal overlay: cubre toda la pantalla con fondo semitransparente */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5); /* fondo negro semitransparente */
+  display: none;                    /* oculto por defecto */
+  align-items: center;
+  justify-content: center;
+  z-index: 999;                     /* encima de todo */
+}
+
+/* Contenedor del modal */
+.modal-contenedor {
+  background-color: var(--blanco-suave);
+  padding: 20px;
+  border-radius: 8px;
+  width: 600px; /* ajusta el ancho a tu gusto */
+  position: relative; /* para posicionar el botón de cerrar */
+}
+
+/* Título del modal */
+.modal-contenedor h2 {
+  margin-bottom: 10px;
+}
+
+/* Cuerpo del modal (imagen + formulario) */
+.modal-body {
+  display: flex;
+  gap: 20px;
+}
+
+/* Sección de imagen (opcional) */
+.modal-imagen {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-imagen img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 1px solid var(--gris-frio);
+  border-radius: 4px;
+}
+
+/* Formulario */
+.modal-form {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-form label {
+  font-weight: bold;
+}
+
+.modal-form input,
+.modal-form textarea {
+  padding: 5px;
+  border: 1px solid var(--gris-frio);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Botón para agregar/guardar */
+.btn-agregar {
+  background-color: var(--oro-calido);
+  color: var(--negro-carbon);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-start; /* Alinea el botón a la izquierda */
+}
+
+.btn-agregar:hover {
+  background-color: #c1956c; 
+}
+
+/* Botón de cerrar (X) */
+.modal-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--negro-carbon);
+}
+
+/* Mostrar el modal cuando tenga la clase "active" (opcional) */
+.modal-overlay.active {
+  display: flex; /* flex para centrar el contenedor */
+}
+
+
+/* Ejemplo de estilo para el input de archivo */
+#imagenProp {
+  margin-bottom: 10px;
+}

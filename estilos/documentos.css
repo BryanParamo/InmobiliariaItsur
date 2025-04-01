@@ -1,0 +1,77 @@
+/* ====== SECCIÓN DOCUMENTOS ====== */
+.content-section {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .content-section h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--negro-carbon);
+  }
+  
+  .documentos-section {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .documentos-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--negro-carbon);
+  }
+  
+  .documentos-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--gris-frio);
+  }
+  
+  /* Estilo para el botón de subir documentos */
+  .document-upload .upload-btn {
+    padding: 12px 25px;
+    background-color: var(--oro-calido);
+    color: var(--negro-carbon);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .document-upload .upload-btn:hover {
+    background-color: #c1956c;
+  }
+  
+  /* Estilo para la lista de documentos guardados */
+  .document-list {
+    margin-top: 40px;
+  }
+  
+  .document-list h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--negro-carbon);
+  }
+  
+  .document-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid var(--gris-frio);
+    border-radius: 8px;
+    background-color: var(--blanco-suave);
+  }
+  
+  .document-item i {
+    color: var(--negro-carbon);
+  }
+  
+  .document-item p {
+    font-size: 1.2rem;
+    color: var(--gris-frio);
+  }
+  

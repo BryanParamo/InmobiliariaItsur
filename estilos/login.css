@@ -1,0 +1,38 @@
+:root {
+    /* Paleta de colores */
+    --negro-carbon: #1C1C1C;    
+    --verde-azulado: #184A45;   
+    --oro-calido: #D4A373;      
+    --blanco-suave: #F5F5F5;    
+    --gris-frio: #8D99AE;       
+  }
+
+
+  .container1{
+    background-image: url(../img/topbanner.jpg);
+    max-width: 100%; 
+  }
+
+.container{
+    background-color: var(--oro-calido);
+    align-items: center;
+    text-align: center;
+    margin-left: 450px;
+    margin-right: 450px;
+    margin-top: 120px;
+    border-radius: 8px;
+    color: white;
+}
+
+.iniciar-sesion {
+    color: var(--blanco-suave);
+    text-decoration: none;
+    background-color: var(--verde-azulado);
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .iniciar-sesion:hover {
+    background-color: var(--oro-calido);
+  }

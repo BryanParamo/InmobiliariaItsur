@@ -2,42 +2,144 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Clientes</title>
-  <!-- Enlace a Font Awesome (opcional para íconos) -->
-  <link rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
-        integrity="sha512-PKfa2Kzj5lWHryCqKJGPzGFTco/AKAS1u7+ftTwQplJ+zSRX8o9i7tMdWbpYmmVI2bnhrR2b6+5BU2/5FBz5jw==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Tu archivo de estilos -->
+  <title>ClientesAdmin</title>
+  <!-- Font Awesome (opcional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- CSS global -->
   <link rel="stylesheet" href="../estilos/global.css">
+  <!-- CSS específico para clientes -->
+  <link rel="stylesheet" href="../estilos/clientes.css">
 </head>
 <body>
-  <!-- Barra lateral (sidebar) -->
+  <!-- Sidebar -->
   <aside class="sidebar">
     <div class="sidebar-logo">
-      <!-- Aquí podrías poner un logo o simplemente texto -->
       <h2>Mi Logo</h2>
     </div>
     <nav class="sidebar-nav">
       <ul>
         <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
         <li><a href="propiedades.html"><i class="fas fa-building"></i> Propiedades</a></li>
-        <li><a href="Clientes.html"><i class="fas fa-users"></i> Clientes</a></li>
-        <li><a href="Marketing.html"><i class="fas fa-chart-line"></i> Marketing</a></li>
-        <li><a href="Documentos.html"><i class="fas fa-file-alt"></i> Documentos</a></li>
-        <li><a href="Hipoteca.html"><i class="fas fa-hand-holding-usd"></i> Hipoteca</a></li>
+        <li><a href="clientes.html"><i class="fas fa-users"></i> Clientes</a></li>
+        <li><a href="marketing.html"><i class="fas fa-chart-line"></i> Marketing</a></li>
+        <li><a href="documentos.html"><i class="fas fa-file-alt"></i> Documentos</a></li>
+        <li><a href="hipoteca.html"><i class="fas fa-hand-holding-usd"></i> Hipoteca</a></li>
       </ul>
     </nav>
   </aside>
 
-  <!-- Contenido principal -->
+  <!-- Main Content -->
   <main class="main-content">
-    <!-- Barra superior (top bar) -->
+    <!-- Top Bar -->
     <header class="top-bar">
       <div class="bienvenido">Clientes</div>
-      <div class="iniciar-sesion"><a href="#">Iniciar Sesión</a></div>
+      <div class="iniciar-sesion"><a href="../html/login.html">Iniciar Sesión</a></div>
     </header>
+
+    <!-- Content Section -->
+    <section class="content-section">
+      <!-- Encabezado: Título y botón "Agregar Cliente" -->
+      <div class="clientes-header">
+        <h1>Lista de clientes</h1>
+        <button class="btn-agregar-prop" id="btnAbrirModalCliente">Agregar Cliente</button>
+      </div>
+
+      <!-- Contenedor que agrupa la lista y el detalle en columnas -->
+      <div class="clientes-container">
+        <!-- Lista de Clientes -->
+        <div class="clientes-list">
+          <!-- Se llenará dinámicamente con JavaScript -->
+        </div>
+
+        <!-- Panel de Detalles -->
+        <div class="detalle-cliente" id="detalle-cliente">
+          <h2>Detalle del Cliente</h2>
+          <p id="nombre-cliente">Selecciona un cliente</p>
+          <p><strong>Correo:</strong> <span id="correo-cliente">---</span></p>
+          <p><strong>Teléfono:</strong> <span id="telefono-cliente">---</span></p>
+          <p><strong>Dirección:</strong> <span id="direccion-cliente">---</span></p>
+          <button class="btn-cerrar" onclick="cerrarDetalles()">Cerrar</button>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!-- Modal para Agregar/Editar Clientes -->
+  <div class="modal-overlay" id="modalOverlayCliente">
+    <div class="modal-contenedor">
+      <h2 id="modalTituloCliente">Agregar Cliente</h2>
+      <!-- Contenedor scrollable -->
+      <div class="modal-body">
+        <div class="modal-form">
+          <!-- Grupo 1: Nombre -->
+          <div class="form-group">
+            <label for="nombreCliente">Nombre</label>
+            <input type="text" id="nombreCliente" required>
+            <span class="validation-message" id="nombreClienteValidation"></span>
+          </div>
+          <!-- Grupo 2: Apellidos -->
+          <div class="form-group">
+            <label for="apellidosCliente">Apellidos</label>
+            <input type="text" id="apellidosCliente" required>
+            <span class="validation-message" id="apellidosClienteValidation"></span>
+          </div>
+          <!-- Grupo 3: Correo -->
+          <div class="form-group">
+            <label for="correoCliente">Correo</label>
+            <input type="email" id="correoCliente" required>
+            <span class="validation-message" id="correoClienteValidation"></span>
+          </div>
+          <!-- Grupo 4: Teléfono -->
+          <div class="form-group">
+            <label for="telefonoCliente">Teléfono</label>
+            <input type="text" id="telefonoCliente" required>
+            <span class="validation-message" id="telefonoClienteValidation"></span>
+          </div>
+          <!-- Grupo 5: Dirección -->
+          <div class="form-group">
+            <label for="direccionCliente">Dirección</label>
+            <input type="text" id="direccionCliente" required>
+            <span class="validation-message" id="direccionClienteValidation"></span>
+          </div>
+          <!-- Grupo 6: Contraseña -->
+          <div class="form-group">
+            <label for="passwordCliente">Contraseña</label>
+            <input type="password" id="passwordCliente" required>
+            <span class="validation-message" id="passwordClienteValidation"></span>
+          </div>
+          <!-- Grupo 7: Rol -->
+          <div class="form-group">
+            <label for="roleCliente">Tipo de Usuario</label>
+            <select id="roleCliente">
+              <option value="cliente">Cliente</option>
+              <option value="usuario">Usuario</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <!-- Botón de Guardar -->
+          <div class="form-group">
+            <button type="button" class="btn-agregar-prop" id="btnAgregarCliente">Guardar</button>
+          </div>
+        </div>
+      </div>
+      <!-- Botón para cerrar el modal (la X) -->
+      <span class="modal-cerrar" id="modalCerrarCliente">&times;</span>
+    </div>
+  </div>
+
+  <!-- Modal de Confirmación para eliminar -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal-contenedor">
+      <h2>Confirmar eliminación</h2>
+      <p>¿Estás seguro de eliminar a <span id="confirmName"></span>?</p>
+      <div class="modal-footer">
+        <button class="btn-agregar-prop" id="confirmYes">Sí</button>
+        <button class="btn-cerrar" id="confirmNo">No</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script de Clientes -->
+  <script src="../js/clientes.js"></script>
 </body>
 </html>

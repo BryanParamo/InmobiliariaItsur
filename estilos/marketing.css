@@ -1,0 +1,44 @@
+/* ====== SECCIÓN DE REDES SOCIALES ====== */
+.content-section {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .content-section h1 {
+    font-size: 2.5rem; 
+    margin-bottom: 30px;
+    color: var(--negro-carbon);
+  }
+  
+  
+  .social-media-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px; 
+  }
+  
+  .social-media-box {
+    background-color: var(--blanco-suave);
+    border: 1px solid var(--gris-frio);
+    padding: 40px;
+    border-radius: 10px; 
+    text-align: center;
+    width: 200px; 
+    transition: background-color 0.3s;
+  }
+  
+  .social-media-box:hover {
+    background-color: var(--gris-frio);
+  }
+  
+  .social-media-box i {
+    color: var(--negro-carbon);
+    font-size: 4rem; 
+  }
+  
+  .social-media-box p {
+    margin-top: 15px;
+    font-size: 1.2rem; 
+    color: var(--negro-carbon);
+  }
+  
