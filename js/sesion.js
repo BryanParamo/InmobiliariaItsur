@@ -42,3 +42,19 @@ function actualizarEstadoSesion() {
     });
   });
   
+
+  document.addEventListener('DOMContentLoaded', function() {
+    fetch('backend/checkSession.php')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('userContainer');
+        if (data.logged_in) {
+          container.innerHTML = `<button id="userButton">${data.nombre}</button>`;
+          // Puedes agregar aquí el evento para mostrar el modal de cerrar sesión.
+        } else {
+          container.innerHTML = '<a href="html/login.html">Iniciar Sesión</a>';
+        }
+      })
+      .catch(error => console.error("Error consultando la sesión:", error));
+  });
+  

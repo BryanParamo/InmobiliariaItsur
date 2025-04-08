@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Propiedades</title>
-  <!-- Enlace a Font Awesome (opcional para íconos) -->
+  <!-- Enlace a Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Tu archivo de estilos -->
-   <link rel="stylesheet" href="../estilos/global.css">
+  <!-- Estilos: Usamos los mismos estilos generales y específicos de propiedades -->
+  <link rel="stylesheet" href="../estilos/global.css">
   <link rel="stylesheet" href="../estilos/propiedades.css">
 </head>
 <body>
@@ -31,52 +31,42 @@
   <main class="main-content">
     <!-- Barra superior (top bar) -->
     <header class="top-bar">
-      <!-- Título de la sección en la barra superior -->
       <div class="bienvenido">Propiedades disponibles</div>
-      <!-- Botón de iniciar sesión -->
-      <div class="iniciar-sesion"><a href="login.html">Iniciar Sesión</a></div>
+      <!-- Aquí se mostrará el usuario si está logueado (manejable vía sesion.js) -->
+      <div class="iniciar-sesion" id="userContainer">
+        <a href="login.html">Iniciar Sesión</a>
+      </div>
     </header>
 
-    <!-- Sección principal de contenido -->
+    <!-- Sección principal para propiedades -->
     <section class="content-section">
       <h1>Propiedades disponibles</h1>
-
-      <!-- Tarjeta 1 -->
-      <div class="property-card">
-        <img src="../img/prop2.jpg" alt="Casa 1" class="property-image">
-        <div class="property-details">
-          <!-- Aquí representas las líneas de texto: precio, descripción, etc. -->
-          <p>Línea 1 de texto descriptivo (precio, cuartos, metros, etc.).</p>
-          <p>Línea 2 de texto descriptivo.</p>
-          <p>Línea 3 de texto descriptivo.</p>
-          <!-- Botón -->
-          <button class="btn-interesa-green">Me interesa!</button>
-        </div>
-      </div>
-
-      <!-- Tarjeta 2 -->
-      <div class="property-card">
-        <img src="../img/prop3.jpg" alt="Casa 2" class="property-image">
-        <div class="property-details">
-          <p>Línea 1 de texto descriptivo.</p>
-          <p>Línea 2 de texto descriptivo.</p>
-          <p>Línea 3 de texto descriptivo.</p>
-          <button class="btn-interesa-green">Me interesa!</button>
-        </div>
-      </div>
-
-      <!-- Tarjeta 3 -->
-      <div class="property-card">
-        <img src="../img/prop4.jpg" alt="Casa 2" class="property-image">
-        <div class="property-details">
-          <p>Línea 1 de texto descriptivo.</p>
-          <p>Línea 2 de texto descriptivo.</p>
-          <p>Línea 3 de texto descriptivo.</p>
-          <button class="btn-interesa-green">Me interesa!</button>
-        </div>
-      </div>
-
+      <!-- Aquí se cargarán las tarjetas de propiedades dinámicamente -->
+      <div id="propiedadesContainer"></div>
     </section>
   </main>
+
+  <!-- Modal de Detalle de Propiedad (para ver más información al dar clic en "Me interesa!") -->
+  <div id="detallePropiedadModal" class="modal-overlay">
+    <div class="modal-contenedor">
+      <span id="detalleModalCerrar" style="position:absolute; top:10px; right:14px; font-size:1.5rem; cursor:pointer; color:var(--gris-frio);">&times;</span>
+      <h2 id="detalleTitulo">Detalle de la Propiedad</h2>
+      <div class="modal-body">
+        <img id="detalleImagen" src="" alt="Imagen de la propiedad" style="width:100%; max-height:250px; object-fit:cover; border-radius:4px; margin-bottom:15px;">
+        <p id="detalleDescripcion"><strong>Descripción:</strong> </p>
+        <p id="detallePrecio"><strong>Precio:</strong> </p>
+        <p id="detalleDireccion"><strong>Dirección:</strong> </p>
+        <p id="detalleTelefono"><strong>Teléfono:</strong> </p>
+        <p id="detalleCorreo"><strong>Correo:</strong> </p>
+      </div>
+      <div class="modal-footer">
+        <button id="detalleCerrar" class="btn-agregar-prop" style="width:100%;">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/sesion.js"></script>
+  <script src="../js/propiedades.js"></script>
 </body>
 </html>
