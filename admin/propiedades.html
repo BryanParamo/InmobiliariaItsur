@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <title>PropiedadesAdmin</title>
-  <!-- Font Awesome (opcional) -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Tu archivo de estilos -->
+  <!-- CSS global y específico -->
   <link rel="stylesheet" href="../estilos/global.css">
   <link rel="stylesheet" href="../estilos/propiedades.css">
 </head>
-
 <body>
-  <!-- Barra lateral (sidebar) -->
+  <!-- Sidebar -->
   <aside class="sidebar">
     <div class="sidebar-logo">
       <h2>Mi Logo</h2>
@@ -29,18 +27,19 @@
     </nav>
   </aside>
 
-  <!-- Contenido principal -->
+  <!-- Main Content -->
   <main class="main-content">
-    <!-- Barra superior (top bar) -->
+    <!-- Top Bar -->
     <header class="top-bar">
       <div class="bienvenido">Propiedades disponibles</div>
-      <div class="iniciar-sesion"><a href="../html/login.html">Iniciar Sesión</a></div>
+      <div class="iniciar-sesion" id="userContainer">
+        <a href="../html/login.html">Iniciar Sesión</a>
+      </div>
     </header>
 
     <!-- Sección principal de contenido -->
     <section class="content-section">
       <h1>Propiedades disponibles</h1>
-      <!-- Agregamos id="btnAbrirModal" para que el JS lo reconozca -->
       <button class="btn-agregar-prop" id="btnAbrirModal">Agregar Propiedad</button>
 
       <!-- Tarjeta 1 -->
@@ -51,7 +50,6 @@
           <p>Línea 2 de texto descriptivo.</p>
           <p>Línea 3 de texto descriptivo.</p>
           <button class="btn-interesa-green">Me interesa!</button>
-          <!-- Llamamos a la función abrirModal('Editar') al hacer clic -->
           <button class="btn-editar" onclick="abrirModal('Editar')">Editar</button>
         </div>
       </div>
@@ -82,45 +80,46 @@
     </section>
   </main>
 
-  <!-- ========== MODAL (oculto por defecto) ========== -->
+  <!-- Modal para Agregar/Editar Propiedades -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal-contenedor">
       <h2 id="modalTitulo">Agregar Propiedad</h2>
       <div class="modal-body">
-        <!-- Imagen (solo representación) -->
         <div class="modal-imagen">
           <img src="../img/placeholder.png" alt="Imagen Propiedad" id="previewImagen">
         </div>
-
-        <!-- Formulario de datos -->
         <div class="modal-form">
           <label for="tituloProp">Título</label>
           <input type="text" id="tituloProp">
-
           <label for="precioProp">Precio</label>
           <input type="text" id="precioProp">
-
           <label for="direccionProp">Dirección</label>
           <input type="text" id="direccionProp">
-
           <label for="descripcionProp">Descripción</label>
           <textarea id="descripcionProp"></textarea>
-
-          <!-- Nuevo input para la imagen -->
           <label for="imagenProp">Seleccionar imagen</label>
           <input type="file" id="imagenProp" accept="image/*">
-
-          <!-- Botón de guardar o agregar -->
           <button class="btn-agregar" id="btnAgregarProp">Agregar</button>
         </div>
+      </div>
+      <span class="modal-cerrar" id="modalCerrar">&times;</span>
+    </div>
+  </div>
 
-        <!-- Botón para cerrar -->
-        <span class="modal-cerrar" id="modalCerrar">&times;</span>
+  <!-- Modal para confirmar cierre de sesión -->
+  <div id="logoutModal" class="modal-overlay">
+    <div class="modal-contenedor">
+      <h2>Cerrar Sesión</h2>
+      <p>¿Deseas cerrar sesión?</p>
+      <div class="modal-footer">
+        <button id="logoutConfirm" class="btn-agregar-prop">Sí</button>
+        <button id="logoutCancel" class="btn-cerrar">No</button>
       </div>
     </div>
+  </div>
 
-    <!-- Tu script con las funciones de abrir y cerrar modal -->
-    <script src="../js/propiedades.js"></script>
+  <!-- Scripts -->
+  <script src="../jsAdmin/propiedades.js"></script>
+  <script src="../js/sesion.js"></script>
 </body>
-
 </html>

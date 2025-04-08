@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>ClientesAdmin</title>
-  <!-- Font Awesome (opcional) -->
+  <!-- Font Awesome (opcional para íconos) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- CSS global -->
   <link rel="stylesheet" href="../estilos/global.css">
@@ -33,25 +33,31 @@
     <!-- Top Bar -->
     <header class="top-bar">
       <div class="bienvenido">Clientes</div>
-      <div class="iniciar-sesion"><a href="../html/login.html">Iniciar Sesión</a></div>
+      <!-- Se ha actualizado el contenedor de iniciar sesión -->
+      <div class="iniciar-sesion" id="userContainer">
+        <a href="../html/login.html">Iniciar Sesión</a>
+      </div>
     </header>
 
     <!-- Content Section -->
     <section class="content-section">
-      <!-- Encabezado: Título y botón "Agregar Cliente" -->
       <div class="clientes-header">
         <h1>Lista de clientes</h1>
-        <button class="btn-agregar-prop" id="btnAbrirModalCliente">Agregar Cliente</button>
+        <div class="header-actions">
+          <div class="search-container">
+            <input type="text" placeholder="Buscar..." class="search-input">
+            <button class="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <button class="btn-agregar-prop" id="btnAbrirModalCliente">Agregar Cliente</button>
+        </div>
       </div>
-
-      <!-- Contenedor que agrupa la lista y el detalle en columnas -->
+      
       <div class="clientes-container">
-        <!-- Lista de Clientes -->
         <div class="clientes-list">
           <!-- Se llenará dinámicamente con JavaScript -->
         </div>
-
-        <!-- Panel de Detalles -->
         <div class="detalle-cliente" id="detalle-cliente">
           <h2>Detalle del Cliente</h2>
           <p id="nombre-cliente">Selecciona un cliente</p>
@@ -64,50 +70,42 @@
     </section>
   </main>
 
-  <!-- Modal para Agregar/Editar Clientes -->
+  <!-- Modal para Agregar/Editar Clientes (mantén el código original de tu modal) -->
   <div class="modal-overlay" id="modalOverlayCliente">
     <div class="modal-contenedor">
       <h2 id="modalTituloCliente">Agregar Cliente</h2>
-      <!-- Contenedor scrollable -->
       <div class="modal-body">
         <div class="modal-form">
-          <!-- Grupo 1: Nombre -->
           <div class="form-group">
             <label for="nombreCliente">Nombre</label>
             <input type="text" id="nombreCliente" required>
             <span class="validation-message" id="nombreClienteValidation"></span>
           </div>
-          <!-- Grupo 2: Apellidos -->
           <div class="form-group">
             <label for="apellidosCliente">Apellidos</label>
             <input type="text" id="apellidosCliente" required>
             <span class="validation-message" id="apellidosClienteValidation"></span>
           </div>
-          <!-- Grupo 3: Correo -->
           <div class="form-group">
             <label for="correoCliente">Correo</label>
             <input type="email" id="correoCliente" required>
             <span class="validation-message" id="correoClienteValidation"></span>
           </div>
-          <!-- Grupo 4: Teléfono -->
           <div class="form-group">
             <label for="telefonoCliente">Teléfono</label>
             <input type="text" id="telefonoCliente" required>
             <span class="validation-message" id="telefonoClienteValidation"></span>
           </div>
-          <!-- Grupo 5: Dirección -->
           <div class="form-group">
             <label for="direccionCliente">Dirección</label>
             <input type="text" id="direccionCliente" required>
             <span class="validation-message" id="direccionClienteValidation"></span>
           </div>
-          <!-- Grupo 6: Contraseña -->
           <div class="form-group">
             <label for="passwordCliente">Contraseña</label>
             <input type="password" id="passwordCliente" required>
             <span class="validation-message" id="passwordClienteValidation"></span>
           </div>
-          <!-- Grupo 7: Rol -->
           <div class="form-group">
             <label for="roleCliente">Tipo de Usuario</label>
             <select id="roleCliente">
@@ -116,13 +114,11 @@
               <option value="admin">Admin</option>
             </select>
           </div>
-          <!-- Botón de Guardar -->
           <div class="form-group">
             <button type="button" class="btn-agregar-prop" id="btnAgregarCliente">Guardar</button>
           </div>
         </div>
       </div>
-      <!-- Botón para cerrar el modal (la X) -->
       <span class="modal-cerrar" id="modalCerrarCliente">&times;</span>
     </div>
   </div>
@@ -139,7 +135,20 @@
     </div>
   </div>
 
-  <!-- Script de Clientes -->
-  <script src="../js/clientes.js"></script>
+  <!-- Modal para confirmar cierre de sesión (común a todas las páginas) -->
+  <div id="logoutModal" class="modal-overlay">
+    <div class="modal-contenedor">
+      <h2>Cerrar Sesión</h2>
+      <p>¿Deseas cerrar sesión?</p>
+      <div class="modal-footer">
+        <button id="logoutConfirm" class="btn-agregar-prop">Sí</button>
+        <button id="logoutCancel" class="btn-cerrar">No</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../jsAdmin/clientes.js"></script>
+  <script src="../js/sesion.js"></script>
 </body>
 </html>

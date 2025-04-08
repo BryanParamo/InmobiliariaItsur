@@ -2,112 +2,47 @@
  * clientes.css
  ******************************************/
 
-/* Variables de color
-:root {
-  --negro-carbon: #1C1C1C;
-  --verde-azulado: #184A45;
-  --oro-calido: #D4A373;
-  --blanco-suave: #F5F5F5;
-  --gris-frio: #8D99AE;
-}
-*/
-
-/* ========== Sección general de la página ========== */
-.clientes-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-/* Contenedor que agrupa la lista y el detalle en columnas */
-.clientes-container {
-  display: flex;       /* Coloca los hijos en fila */
-  gap: 20px;           /* Espacio horizontal entre columnas */
-  margin-top: 20px;
-}
-
-/* Opcional: Estilos específicos para el modal de confirmación */
-#confirmModal .modal-contenedor {
-  width: 400px;
-  text-align: center;
-}
-
-#confirmModal p {
-  margin: 20px 0;
-}
-
-
-/* Lista de clientes (columna izquierda) */
-.clientes-list {
-  background-color: var(--oro-calido);
-  padding: 20px;
-  border-radius: 8px;
-  width: 450px;  
-  flex-shrink: 0;
-}
-
-/* Panel de detalles (columna derecha) */
-.detalle-cliente {
-  flex: 1;
-  background-color: var(--blanco-suave);
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-.detalle-cliente h2 {
-  margin-bottom: 10px;
-}
-.detalle-cliente p {
-  margin-bottom: 10px;
-}
-
-/* Cada cliente en la lista */
-.cliente-item {
-  background-color: var(--blanco-suave);
-  margin-bottom: 10px;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* ========== Modal para Clientes ========== */
+.modal-agregar-prop, .btn-agregar-prop {
+  background-color: var(--verde-azulado);
+  border: none;
   border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 10px 20px;
   transition: background-color 0.3s;
 }
-.cliente-item:hover {
-  background-color: var(--gris-frio);
+.btn-agregar-prop:hover {
+  background-color: #1e5b51;
 }
 
-/* Contenedor para icono y nombre */
-.cliente-info {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+/* Botón para cerrar (en el detalle, por ejemplo) */
+.btn-cerrar {
+  background-color: #999 !important;
+  border: none;
+  border-radius: 4px;
+  color: #fff !important;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  padding: 8px 15px;
+  transition: background-color 0.3s;
 }
-
-/* Contenedor para botones */
-.cliente-actions {
-  display: flex;
-  gap: 8px;
-}
-
-/* Ícono de cliente (imagen) */
-.icono-cliente {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 50%;
+.btn-cerrar:hover {
+  background-color: #666 !important;
 }
 
 /* Botón para editar */
 .btn-editar {
   background-color: var(--gris-frio);
-  color: var(--blanco-suave);
   border: none;
-  padding: 8px 15px;
   border-radius: 4px;
+  color: var(--blanco-suave);
   cursor: pointer;
-  transition: background-color 0.3s;
   font-size: 0.9rem;
+  padding: 8px 15px;
+  transition: background-color 0.3s;
 }
 .btn-editar:hover {
   background-color: var(--oro-calido);
@@ -116,131 +51,238 @@
 /* Botón para eliminar */
 .btn-eliminar {
   background-color: #d9534f !important;
-  color: #fff !important;
   border: none;
-  padding: 8px 15px;
   border-radius: 4px;
+  color: #fff !important;
   cursor: pointer;
-  transition: background-color 0.3s;
   font-size: 0.9rem;
+  margin-left: 8px;
+  padding: 8px 15px;
+  transition: background-color 0.3s;
 }
 .btn-eliminar:hover {
   background-color: #c9302c !important;
 }
 
-/* Botón para cerrar (en el detalle, por ejemplo) */
-.btn-cerrar {
-  background-color: #999 !important;
-  color: #fff !important;
+/* Botón "Agregar Cliente" */
+.btn-agregar-prop {
+  background-color: var(--verde-azulado);
   border: none;
-  padding: 8px 15px;
   border-radius: 4px;
+  color: #fff;
   cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s;
   font-size: 0.9rem;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
 }
-.btn-cerrar:hover {
-  background-color: #666 !important;
+.btn-agregar-prop:hover {
+  background-color: #1e5b51;
 }
 
-/* ========== Modal para Clientes ========== */
-.modal-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  display: none; /* oculto por defecto */
+/* Barra de búsqueda */
+.search-btn {
   align-items: center;
+  background-color: var(--gris-frio);
+  border: none;
+  cursor: pointer;
+  display: flex;
   justify-content: center;
+  padding: 5px 10px;
+  transition: background-color 0.3s;
+}
+.search-btn:hover {
+  background-color: var(--oro-calido);
+}
+.search-btn i {
+  color: #fff; /* o var(--blanco-suave) */
+  font-size: 16px;
+}
+.search-container {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+.search-input {
+  border: 1px solid var(--gris-frio);
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+/* Clientes Container */
+.clientes-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Clientes Header */
+.clientes-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Clientes List */
+.clientes-list {
+  background-color: var(--oro-calido);
+  border-radius: 8px;
+  flex-shrink: 0;
+  padding: 20px;
+  width: 450px;
+}
+
+/* Cliente Actions */
+.cliente-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Cliente Info */
+.cliente-info {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+/* Cliente Item */
+.cliente-item {
+  align-items: center;
+  background-color: var(--blanco-suave);
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+.cliente-item:hover {
+  background-color: var(--gris-frio);
+}
+
+/* Detalle Cliente */
+.detalle-cliente {
+  background-color: var(--blanco-suave);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  flex: 1;
+  padding: 20px;
+}
+.detalle-cliente h2 {
+  margin-bottom: 10px;
+}
+.detalle-cliente p {
+  margin-bottom: 10px;
+}
+
+/* Form Group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Icono Cliente */
+.icono-cliente {
+  border-radius: 50%;
+  height: 40px;
+  object-fit: cover;
+  width: 40px;
+}
+
+/* Header Actions */
+.header-actions {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+/* Modal Body */
+.modal-body {
+  margin-bottom: 20px;
+}
+
+/* Modal Cerrar */
+.modal-cerrar {
+  color: var(--negro-carbon);
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+/* Modal Contenedor */
+.modal-contenedor {
+  background-color: var(--blanco-suave);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 20px;
+  position: relative;
+  width: 500px;
+  border-radius: 8px;
+}
+.modal-contenedor h2 {
+  margin-bottom: 10px;
+}
+
+/* Modal Form */
+.modal-form {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+.modal-form input,
+.modal-form select {
+  border: 1px solid var(--gris-frio);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  padding: 5px;
+  width: 100%;
+}
+.modal-form input.input-invalid {
+  border: 2px solid red !important;
+}
+.modal-form input.input-valid {
+  border: 2px solid green !important;
+}
+.modal-form label {
+  font-weight: bold;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  align-items: center;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 999;
 }
 .modal-overlay.active {
   display: flex;
 }
 
-/* Contenedor principal del modal */
-.modal-contenedor {
-  background-color: var(--blanco-suave);
-  padding: 20px;
-  border-radius: 8px;
-  width: 500px; /* Ajusta a tu gusto */
-  max-height: 80vh;
-  overflow-y: auto; /* Permite scroll cuando sea necesario */
-  position: relative;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-/* Título del modal */
-.modal-contenedor h2 {
-  margin-bottom: 10px;
-}
-
-/* Modal body (si decides separar el contenido scrollable) */
-.modal-body {
-  margin-bottom: 20px;
-}
-
-/* Botón para cerrar (la X) */
-.modal-cerrar {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.4rem;
-  cursor: pointer;
-  font-weight: bold;
-  color: var(--negro-carbon);
-}
-
-/* Formulario en el modal: se usa CSS Grid para dos columnas */
-.modal-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-.modal-form label {
-  font-weight: bold;
-}
-.modal-form input,
-.modal-form select {
-  padding: 5px;
-  border: 1px solid var(--gris-frio);
-  border-radius: 4px;
-  font-size: 1rem;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Botón de guardar en el modal */
-.btn-agregar-prop {
-  background-color: var(--verde-azulado);
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-size: 0.9rem;
-}
-.btn-agregar-prop:hover {
-  background-color: #1e5b51;
-}
-
-/* ========== Validación en inputs ========== */
-.modal-form input.input-valid {
-  border: 2px solid green !important;
-}
-.modal-form input.input-invalid {
-  border: 2px solid red !important;
-}
+/* Validación */
 .validation-message {
   color: red;
+  display: block;
   font-size: 0.85em;
   margin-top: 2px;
-  display: block;
+}
+
+/* Confirm Modal (estilos específicos para el modal de confirmación) */
+#confirmModal .modal-contenedor {
+  text-align: center;
+  width: 400px;
+}
+#confirmModal p {
+  margin: 20px 0;
 }

@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
-  <title>Pantalla Principal Admin</title>
-  <!-- Enlace a Font Awesome (opcional para íconos) -->
+  <title>Pantalla Principal (Admin)</title>
+  <!-- Enlace a Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <!-- Tu archivo de estilos -->
+  
+  <!-- Tus estilos (ajusta la ruta según tu estructura) -->
+  <!-- Aquí asumo que estás en /admin/index.html, y el CSS está en /estilos/ -->
   <link rel="stylesheet" href="../estilos/global.css">
   <link rel="stylesheet" href="../estilos/index.css">
 </head>
-
 <body>
-
   <!-- Barra lateral (sidebar) -->
   <aside class="sidebar">
     <div class="sidebar-logo">
-      <!-- Aquí podrías pon er un logo o simplemente texto -->
       <h2>Mi Logo</h2>
     </div>
     <nav class="sidebar-nav">
@@ -37,18 +34,23 @@
     <!-- Barra superior (top bar) -->
     <header class="top-bar">
       <div class="bienvenido">Bienvenido</div>
-      <div class="iniciar-sesion"><a href="../html/login.html">Iniciar Sesión</a></div>
+      <!-- Contenedor para el botón de sesión, se actualizará vía JS -->
+      <div class="iniciar-sesion" id="userContainer">
+        <!-- Valor inicial -->
+        <a href="../html/login.html">Iniciar Sesión</a>
+      </div>
     </header>
 
     <!-- Sección central donde va el contenido -->
     <section class="content-section">
-      <!-- NO BORRAR ESTE DIV -->
-      <div class="container">
-      </div>
+      <!-- Bloque que muestra la imagen de fondo (banner) -->
+      <!-- Asegúrate de NO borrarlo si tu CSS depende de él -->
+      <div class="container"></div>
 
       <h1 style="text-align: center;">Nuestra casa es su casa</h1>
       <div class="property-info">
         <div class="property-image">
+          <!-- Ajusta la ruta para que apunte correctamente a prop1.jpg -->
           <img src="../img/prop1.jpg" alt="Casa Moderna" class="imagen-propiedad2">
         </div>
         <div class="property-details">
@@ -56,16 +58,27 @@
           <p class="price">$250,000</p>
           <p class="description">
             Hermosa casa moderna con 3 habitaciones, 2 baños, sala amplia y un jardín espectacular.
-            Ideal para disfrutar en familia.
           </p>
           <p class="location">Ubicación: Ciudad XYZ</p>
           <button class="btn-reservar">Me interesa</button>
         </div>
       </div>
-
     </section>
   </main>
 
-</body>
+  <!-- Modal para confirmar cierre de sesión -->
+  <div id="logoutModal" class="modal-overlay">
+    <div class="modal-contenedor">
+      <h2>Cerrar Sesión</h2>
+      <p>¿Deseas cerrar sesión?</p>
+      <div class="modal-footer">
+        <button id="logoutConfirm" class="btn-agregar-prop">Sí</button>
+        <button id="logoutCancel" class="btn-cerrar">No</button>
+      </div>
+    </div>
+  </div>
 
+  <!-- Script para actualizar estado de sesión (si lo usas) -->
+  <script src="../js/sesion.js"></script>
+</body>
 </html>

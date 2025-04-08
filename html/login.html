@@ -1,26 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="../estilos/login.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Inmobiliaria Uriangato</title>
+  <link rel="stylesheet" href="../estilos/global.css">
+  <link rel="stylesheet" href="../estilos/login.css">
 </head>
-<body class="container1">
-    <div class="container">
-        <nav>
-            <h1>Inmobiliaria Uriangato</h1>
-            <h4>Por favor inice sesión para continuar</h4>
-        </nav>
-        <nav>
-            <h3>Usuario</h3>
-            <input type="text">
-            <h3>Contraseña</h3>
-            <input type="password">
-            <h4>si no tienes cuenta, <a href="registrarse.html">haz clic aqui</a></h4>
-            <div class="iniciar-sesion"><a href="../index.html">Iniciar Sesión</a></div>
-            <div class="iniciar-sesion"><a href="../index.html">Cancelar</a></div>
-        </nav>
-    </div>
+<body class="login-body">
+  <div class="login-container">
+    <h1>Inmobiliaria Uriangato</h1>
+    <h2>Iniciar Sesión</h2>
+    <form id="loginForm" action="../backend/login.php" method="POST" novalidate>
+      <div class="form-group">
+         <label for="username">Usuario</label>
+         <input type="text" id="username" name="username" placeholder="Tu usuario" required>
+         <span class="validation-message" id="usernameValidation"></span>
+      </div>
+      <div class="form-group">
+         <label for="password">Contraseña</label>
+         <input type="password" id="password" name="password" placeholder="Tu contraseña" required minlength="8">
+         <span class="validation-message" id="passwordValidation"></span>
+      </div>
+      <button type="submit" class="btn-primary">Iniciar Sesión</button>
+    </form>
+    <p class="login-footer">¿No tienes cuenta? <a href="registrarse.html">Regístrate aquí</a></p>
+    <!-- Botón de regresar a la página principal -->
+    <p class="login-footer">
+      <a href="../index.html">← Regresar a la Ventana Principal</a>
+    </p>
+  </div>
+  <script src="../js/login.js"></script>
 </body>
 </html>

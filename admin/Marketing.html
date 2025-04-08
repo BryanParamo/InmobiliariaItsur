@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>MarketingAdmin</title>
-  <!-- Enlace a Font Awesome (opcional para íconos) -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Tu archivo de estilos -->
+  <!-- CSS global -->
   <link rel="stylesheet" href="../estilos/global.css">
 </head>
 <body>
-  <!-- Barra lateral (sidebar) -->
+  <!-- Sidebar -->
   <aside class="sidebar">
     <div class="sidebar-logo">
-      <!-- Aquí podrías poner un logo o simplemente texto -->
       <h2>Mi Logo</h2>
     </div>
     <nav class="sidebar-nav">
@@ -27,14 +26,32 @@
     </nav>
   </aside>
 
-  <!-- Contenido principal -->
+  <!-- Main Content -->
   <main class="main-content">
-    <!-- Barra superior (top bar) -->
+    <!-- Top Bar -->
     <header class="top-bar">
       <div class="bienvenido">Marketing</div>
-      <div class="iniciar-sesion"><a href="../html/login.html">Iniciar Sesión</a></div>
+      <div class="iniciar-sesion" id="userContainer">
+        <a href="../html/login.html">Iniciar Sesión</a>
+      </div>
     </header>
+
+    <!-- Contenido (según lo requiera la sección Marketing) -->
   </main>
 
+  <!-- Modal para confirmar cierre de sesión -->
+  <div id="logoutModal" class="modal-overlay">
+    <div class="modal-contenedor">
+      <h2>Cerrar Sesión</h2>
+      <p>¿Deseas cerrar sesión?</p>
+      <div class="modal-footer">
+        <button id="logoutConfirm" class="btn-agregar-prop">Sí</button>
+        <button id="logoutCancel" class="btn-cerrar">No</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Script -->
+  <script src="../js/sesion.js"></script>
 </body>
 </html>

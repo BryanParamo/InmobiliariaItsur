@@ -47,7 +47,8 @@
           <input type="text" placeholder="Buscar..." class="search-input">
           <!-- Botón con imagen de lupa -->
           <button class="search-btn">
-            <img src="../img/busqueda-de-lupa.png" alt="Buscar" class="lupa-icon">
+             <!-- <img src="../img/busqueda-de-lupa.png" alt="Buscar" class="lupa-icon"> -->
+             <i class="fas fa-search"></i>
           </button>
         </div>
       </div>
@@ -55,24 +56,7 @@
       <!-- Contenedor que agrupa la lista y el panel de detalles en columnas -->
       <div class="clientes-container">
         <!-- Lista de clientes (columna izquierda) -->
-        <div class="clientes-list">
-          <div class="cliente-item" onclick="mostrarDetalles('Juan Pérez')">
-            <img src="../img/usuario.png" alt="Icono de Juan" class="icono-cliente">
-            <span>Juan Pérez</span>
-          </div>
-          <div class="cliente-item" onclick="mostrarDetalles('María López')">
-            <img src="../img/usuario.png" alt="Icono de María" class="icono-cliente">
-            <span>María López</span>
-          </div>
-          <div class="cliente-item" onclick="mostrarDetalles('Esteba Alvarez')">
-            <img src="../img/usuario.png" alt="Icono de Esteba" class="icono-cliente">
-            <span>Esteba Alvarez</span>
-          </div>
-          <div class="cliente-item" onclick="mostrarDetalles('Jaime León')">
-            <img src="../img/usuario.png" alt="Icono de Jaime" class="icono-cliente">
-            <span>Jaime León</span>
-          </div>
-        </div>
+        <div class="clientes-list"></div>
 
         <!-- Panel de detalles (columna derecha) -->
         <div class="detalle-cliente" id="detalle-cliente">
@@ -89,6 +73,6 @@
   </main>
 
   <!-- Tu script con mostrarDetalles() y cerrarDetalles() -->
-  <script src="../js/calientes.js"></script>
+  <script src="../js/clientes.js"></script>
 </body>
 </html>

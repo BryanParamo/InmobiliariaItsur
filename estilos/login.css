@@ -1,38 +1,88 @@
 :root {
-    /* Paleta de colores */
-    --negro-carbon: #1C1C1C;    
-    --verde-azulado: #184A45;   
-    --oro-calido: #D4A373;      
-    --blanco-suave: #F5F5F5;    
-    --gris-frio: #8D99AE;       
-  }
-
-
-  .container1{
-    background-image: url(../img/topbanner.jpg);
-    max-width: 100%; 
-  }
-
-.container{
-    background-color: var(--oro-calido);
-    align-items: center;
-    text-align: center;
-    margin-left: 450px;
-    margin-right: 450px;
-    margin-top: 120px;
-    border-radius: 8px;
-    color: white;
+  --negro-carbon: #1C1C1C;    
+  --verde-azulado: #184A45;   
+  --oro-calido: #D4A373;      
+  --blanco-suave: #F5F5F5;    
+  --gris-frio: #8D99AE;       
 }
 
-.iniciar-sesion {
-    color: var(--blanco-suave);
-    text-decoration: none;
-    background-color: var(--verde-azulado);
-    padding: 8px 15px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-  }
-  
-  .iniciar-sesion:hover {
-    background-color: var(--oro-calido);
-  }
+body.login-body {
+  background-image: url("../img/topbanner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  background-color: rgba(212, 163, 115, 0.85); /* Fondo semi-transparente usando el color oro cálido */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  color: var(--blanco-suave);
+  padding: 40px;
+  text-align: center;
+  width: 350px;
+}
+
+.login-container h1 {
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  border: 1px solid var(--gris-frio);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  padding: 8px;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: var(--verde-azulado);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: #1e5b51;
+}
+
+.login-footer {
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+.login-footer a {
+  color: var(--blanco-suave);
+  text-decoration: underline;
+}

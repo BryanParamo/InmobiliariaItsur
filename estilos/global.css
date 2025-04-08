@@ -175,5 +175,70 @@ body {
   background-color: #c1956c; 
 }
 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-contenedor {
+  background-color: var(--blanco-suave);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+.modal-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-contenedor {
+  background-color: var(--blanco-suave);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.modal-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
 
 
+.container {
+  max-width: 100%;
+  background-color: black;
+  background-image: url('../img/topbanner.jpg'); /* Ajusta la ruta */
+  background-size: cover;
+  height: 200px;

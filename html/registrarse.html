@@ -1,32 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse</title>
-    <link rel="stylesheet" href="../estilos/login.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrarse - Inmobiliaria Uriangato</title>
+  <link rel="stylesheet" href="../estilos/global.css">
+  <link rel="stylesheet" href="../estilos/login.css">
 </head>
-<body class="container1">
-    <div class="container">
-        <nav>
-            <h1>Inmobiliaria Uriangato</h1>
-            <h4>Por favor inice sesión para continuar</h4>
-        </nav>
-        <nav>
-            <h3>Nombre</h3>
-            <input type="text">
-            <h3>Apellidos</h3>
-            <input type="text">
-            <h3>Contraseña</h3>
-            <input type="password">
-            <h3>Repetir contraseña</h3>
-            <input type="password">
-            <h3>Correo</h3>
-            <input type="text">
-            <h3>Número de telefono</h3>
-            <input type="number">
-            <div class="iniciar-sesion"><a href="login.html">Registrarse</a></div>
-        </nav>
-    </div>
+<body class="login-body">
+  <div class="login-container">
+    <h1>Inmobiliaria Uriangato</h1>
+    <h2>Registrarse</h2>
+    <form id="registroForm" action="../backend/registrarse.php" method="POST" novalidate>
+      <div class="form-group">
+         <label for="nombre">Nombre</label>
+         <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required minlength="3">
+         <span class="validation-message" id="nombreValidation"></span>
+      </div>
+      <div class="form-group">
+         <label for="apellidos">Apellidos</label>
+         <input type="text" id="apellidos" name="apellidos" placeholder="Tus apellidos" required minlength="3">
+         <span class="validation-message" id="apellidosValidation"></span>
+      </div>
+      <div class="form-group">
+         <label for="correo">Correo</label>
+         <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required>
+         <span class="validation-message" id="correoValidation"></span>
+      </div>
+      <div class="form-group">
+         <label for="telefono">Número de teléfono</label>
+         <input type="text" id="telefono" name="telefono" placeholder="10 dígitos" required pattern="\d{10}">
+         <span class="validation-message" id="telefonoValidation"></span>
+      </div>
+      <div class="form-group">
+         <label for="password">Contraseña</label>
+         <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres, 1 letra y 1 dígito" required>
+         <span class="validation-message" id="passwordValidation"></span>
+      </div>
+      <div class="form-group">
+         <label for="confirm_password">Repetir contraseña</label>
+         <input type="password" id="confirm_password" name="confirm_password" placeholder="Repite la contraseña" required>
+         <span class="validation-message" id="confirmPasswordValidation"></span>
+      </div>
+      <button type="submit" class="btn-primary">Registrarse</button>
+    </form>
+    <p class="login-footer">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+  </div>
+  <script src="../js/registrarse.js"></script>
 </body>
 </html>
