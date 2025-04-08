@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>ClientesAdmin</title>
@@ -10,6 +11,7 @@
   <!-- CSS específico para clientes -->
   <link rel="stylesheet" href="../estilos/clientes.css">
 </head>
+
 <body>
   <!-- Sidebar -->
   <aside class="sidebar">
@@ -53,7 +55,7 @@
           <button class="btn-agregar-prop" id="btnAbrirModalCliente">Agregar Cliente</button>
         </div>
       </div>
-      
+
       <div class="clientes-container">
         <div class="clientes-list">
           <!-- Se llenará dinámicamente con JavaScript -->
@@ -141,14 +143,36 @@
       <h2>Cerrar Sesión</h2>
       <p>¿Deseas cerrar sesión?</p>
       <div class="modal-footer">
+        <!-- Usamos las clases de estilo que ya tienes -->
         <button id="logoutConfirm" class="btn-agregar-prop">Sí</button>
         <button id="logoutCancel" class="btn-cerrar">No</button>
       </div>
     </div>
   </div>
 
+
+  <!-- Modal de Notificación de Éxito -->
+  <div id="successModal" class="modal-overlay">
+    <div class="modal-contenedor">
+      <h2>Operación Exitosa</h2>
+      <p id="successMessage">El cliente se ha actualizado correctamente.</p>
+      <button id="successClose" class="btn-agregar-prop">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Modal de Notificación de Error -->
+  <div id="errorModal" class="modal-overlay">
+    <div class="modal-contenedor">
+      <h2>Error</h2>
+      <p id="errorMessage">No se pudo completar la operación.</p>
+      <button id="errorClose" class="btn-cerrar">Cerrar</button>
+    </div>
+  </div>
+
+
   <!-- Scripts -->
   <script src="../jsAdmin/clientes.js"></script>
   <script src="../js/sesion.js"></script>
 </body>
+
 </html>

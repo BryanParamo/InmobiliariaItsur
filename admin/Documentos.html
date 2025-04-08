@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
-  <title>DocumentosAdmin</title>
-  <!-- Font Awesome -->
+  <title>Documentos</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- CSS global -->
+
+  <!-- Enlace a los estilos específicos de Documentos -->
+  <link rel="stylesheet" href="../estilos/documentos.css">
   <link rel="stylesheet" href="../estilos/global.css">
 </head>
+
 <body>
-  <!-- Sidebar -->
+  <!-- Barra lateral (sidebar) -->
   <aside class="sidebar">
     <div class="sidebar-logo">
       <h2>Mi Logo</h2>
@@ -26,15 +29,59 @@
     </nav>
   </aside>
 
-  <!-- Main Content -->
+  <!-- Contenido principal -->
   <main class="main-content">
-    <!-- Top Bar -->
+    <!-- Barra superior (top bar) -->
     <header class="top-bar">
       <div class="bienvenido">Documentos</div>
       <div class="iniciar-sesion" id="userContainer">
         <a href="../html/login.html">Iniciar Sesión</a>
       </div>
     </header>
+
+    <!-- Sección de Documentos -->
+    <section class="documentos-section">
+      <h1>Almacena y organiza tus documentos importantes</h1>
+      <p>Guarda tus contratos, escrituras y documentos importantes de forma segura y accesible.</p>
+
+      <!-- Sección para subir documento: dos botones separados -->
+      <div class="document-upload">
+        <button class="upload-btn" id="btnSubirContrato">Subir Contrato de Compra</button>
+        <button class="upload-btn" id="btnSubirEscritura">Subir Escritura de Propiedad</button>
+      </div>
+
+      <!-- Modal de Subir Documento -->
+      <div id="subirDocumentoModal" class="modal-overlay">
+        <div class="modal-contenedor">
+          <h2>Subir Documento</h2>
+          <form id="formSubirDocumento" enctype="multipart/form-data">
+            <!-- Campo oculto para indicar el tipo de documento -->
+            <input type="hidden" id="documentoTipo" name="tipo" value="">
+            <div class="form-group">
+              <label for="documentoFile">Selecciona un archivo:</label>
+              <input type="file" id="documentoFile" name="documento" required>
+            </div>
+            <button type="submit" class="btn-agregar-prop">Subir</button>
+            <button type="button" class="btn-cerrar" id="cancelarSubida">Cancelar</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Lista de Documentos -->
+      <div class="document-list">
+        <h2>Documentos Guardados</h2>
+        <!-- Los elementos se cargarán dinámicamente mediante documentos.js -->
+        <!-- Ejemplo fijo: -->
+        <div class="document-item">
+          <i class="fas fa-file-alt fa-3x"></i>
+          <p>Contrato de Compra</p>
+        </div>
+        <div class="document-item">
+          <i class="fas fa-file-alt fa-3x"></i>
+          <p>Escritura de Propiedad</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Modal para confirmar cierre de sesión -->
@@ -49,7 +96,31 @@
     </div>
   </div>
 
-  <!-- Script -->
+  <!-- Modal de Notificación de Éxito -->
+  <div id="successModal" class="modal-overlay">
+    <div class="modal-contenedor">
+      <h2>Operación Exitosa</h2>
+      <p id="successMessage">Documento eliminado correctamente.</p>
+      <div class="modal-footer">
+        <button id="successClose" class="btn-agregar-prop">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Notificación de Error -->
+  <div id="errorModal" class="modal-overlay">
+    <div class="modal-contenedor">
+      <h2>Error</h2>
+      <p id="errorMessage">No se pudo eliminar el documento.</p>
+      <div class="modal-footer">
+        <button id="errorClose" class="btn-cerrar">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts: Primero el de sesión, luego documentos -->
   <script src="../js/sesion.js"></script>
+  <script src="../jsAdmin/documentos.js"></script>
 </body>
+
 </html>

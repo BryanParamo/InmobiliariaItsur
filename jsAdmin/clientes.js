@@ -156,18 +156,22 @@ confirmNoBtn.addEventListener("click", closeConfirmModal);
 // Función para eliminar cliente
 // =====================
 function eliminarCliente(idCliente) {
-  fetch(`../backend/eliminarCliente.php?id=${idCliente}`)
+  fetch(`../backend/eliminarcliente.php?id=${idCliente}`)
     .then(response => response.json())
     .then(data => {
       if (data.success) {
-        alert("Cliente eliminado correctamente");
-        cargarClientes();
+        showSuccessModal("Cliente eliminado correctamente.");
+        cargarClientes(); // Recargar la lista de clientes
       } else {
-        alert("Error al eliminar el cliente: " + data.message);
+        showErrorModal("Error al eliminar el cliente: " + data.message);
       }
     })
-    .catch(error => console.error("Error al eliminar cliente:", error));
+    .catch(error => {
+      console.error("Error al eliminar cliente:", error);
+      showErrorModal("Error en la petición: " + error);
+    });
 }
+
 
 // =====================
 // Modal para Agregar/Editar Clientes
@@ -340,6 +344,7 @@ function validateForm() {
 btnAgregarCliente.addEventListener("click", () => {
   if (!validateForm()) return;
 
+  // Extraer valores
   const nombre = document.getElementById("nombreCliente").value.trim();
   const apellidos = document.getElementById("apellidosCliente").value.trim();
   const correo = document.getElementById("correoCliente").value.trim();
@@ -348,7 +353,6 @@ btnAgregarCliente.addEventListener("click", () => {
   const password = document.getElementById("passwordCliente").value;
   const role = document.getElementById("roleCliente").value;
   
-  // Determina la acción según si estamos editando o creando
   let accion = window.idClienteEnEdicion ? "editar" : "crear";
   let url = "../backend/agregarCliente.php";
   if (accion === "editar") {
@@ -368,29 +372,28 @@ btnAgregarCliente.addEventListener("click", () => {
   formData.append("password", password);
   formData.append("role", role);
   
-  // Depuración en consola
-  for (let [key, value] of formData.entries()) {
-    console.log(key, value);
-  }
-  
   fetch(url, {
     method: "POST",
     body: formData 
   })
     .then(response => response.json())
     .then(data => {
+      // Aquí se muestra la notificación en lugar del alert
       if (data.success) {
-        alert(accion === "crear" ? "Cliente agregado con éxito" : "Cliente editado con éxito");
+        showSuccessModal(accion === "crear" ? "Cliente agregado con éxito" : "Cliente editado con éxito");
         cerrarModalCliente();
         cargarClientes();
       } else {
-        alert("Error: " + data.message);
+        showErrorModal("Error: " + data.message);
       }
     })
     .catch(error => {
-      console.error("Error:", error);
+      console.error("Error en la petición:", error);
+      showErrorModal("Error en la petición: " + error);
     });
 });
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   cargarClientes();
@@ -458,3 +461,36 @@ function cargarClientesUsuario() {
     })
     .catch(error => console.error('Error al cargar clientes:', error));
 }
+
+function showSuccessModal(message) {
+  const successModal = document.getElementById("successModal");
+  const successMessage = document.getElementById("successMessage");
+  successMessage.textContent = message;
+  successModal.classList.add("active");
+}
+
+function showErrorModal(message) {
+  const errorModal = document.getElementById("errorModal");
+  const errorMessage = document.getElementById("errorMessage");
+  errorMessage.textContent = message;
+  errorModal.classList.add("active");
+}
+
+// Asignar eventos a los botones para cerrar los modales
+document.addEventListener('DOMContentLoaded', () => {
+  const successClose = document.getElementById("successClose");
+  const errorClose = document.getElementById("errorClose");
+
+  if (successClose) {
+    successClose.addEventListener("click", () => {
+      document.getElementById("successModal").classList.remove("active");
+    });
+  }
+
+  if (errorClose) {
+    errorClose.addEventListener("click", () => {
+      document.getElementById("errorModal").classList.remove("active");
+    });
+  }
+});
+

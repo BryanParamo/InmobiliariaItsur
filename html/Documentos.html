@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <title>Documentos</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <!-- Enlace a los estilos específicos de Documentos -->
+  <!-- Estilos -->
   <link rel="stylesheet" href="../estilos/documentos.css">
   <link rel="stylesheet" href="../estilos/global.css">
 </head>
@@ -32,29 +31,27 @@
     <!-- Barra superior (top bar) -->
     <header class="top-bar">
       <div class="bienvenido">Documentos</div>
-      <div class="iniciar-sesion"><a href="login.html">Iniciar Sesión</a></div>
+      <div class="iniciar-sesion" id="userContainer">
+        <a href="login.html">Iniciar Sesión</a>
+      </div>
     </header>
 
     <!-- Sección de Documentos -->
     <section class="documentos-section">
       <h1>Almacena y organiza tus documentos importantes</h1>
       <p>Guarda tus contratos, escrituras y documentos importantes de forma segura y accesible.</p>
-      <div class="document-upload">
-        <button class="upload-btn">Subir Documento</button>
-      </div>
 
+      <!-- Lista de Documentos, se actualizará dinámicamente -->
       <div class="document-list">
         <h2>Documentos Guardados</h2>
-        <div class="document-item">
-          <i class="fas fa-file-alt fa-3x"></i>
-          <p>Contrato de Compra</p>
-        </div>
-        <div class="document-item">
-          <i class="fas fa-file-alt fa-3x"></i>
-          <p>Escritura de Propiedad</p>
-        </div>
       </div>
     </section>
   </main>
+
+  <!-- No se requieren modales de editar o eliminar en la vista de usuario -->
+
+  <!-- Scripts: Incluye el de sesión y el de documentos para usuario -->
+  <script src="../js/sesion.js"></script>
+  <script src="../js/documentos.js"></script>
 </body>
 </html>

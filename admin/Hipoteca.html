@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>HipotecaAdmin</title>
@@ -8,6 +9,7 @@
   <!-- CSS global -->
   <link rel="stylesheet" href="../estilos/global.css">
 </head>
+
 <body>
   <!-- Sidebar -->
   <aside class="sidebar">
@@ -48,8 +50,20 @@
       </div>
     </div>
   </div>
-  
+  <div id="logoutModal" class="modal-overlay">
+    <div class="modal-contenedor">
+      <h2>Cerrar Sesión</h2>
+      <p>¿Deseas cerrar sesión?</p>
+      <div class="modal-footer">
+        <!-- Usamos las clases de estilo que ya tienes -->
+        <button id="logoutConfirm" class="btn-agregar-prop">Sí</button>
+        <button id="logoutCancel" class="btn-cerrar">No</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Script -->
   <script src="../js/sesion.js"></script>
 </body>
+
 </html>
