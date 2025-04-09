@@ -147,9 +147,6 @@ function cargarDocumentos() {
 
 
 function eliminarDocumento(idDocumento) {
-    if (!confirm("¿Estás seguro de eliminar este documento?")) {
-        return; // Si el usuario canceló, no hace nada
-    }
 
     // Enviamos la petición al backend
     const formData = new FormData();

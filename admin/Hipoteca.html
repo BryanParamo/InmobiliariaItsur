@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
-  <title>HipotecaAdmin</title>
-  <!-- Font Awesome -->
+  <title>Hipoteca</title>
+  <!-- Enlace a Font Awesome (opcional para íconos) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- CSS global -->
-  <link rel="stylesheet" href="../estilos/global.css">
-</head>
 
+  <!-- Tu archivo de estilos -->
+  <link rel="stylesheet" href="../estilos/global.css">
+  <link rel="stylesheet" href="../estilos/hipoteca.css"> <!-- Aquí se cambia a hipoteca.css -->
+</head>
 <body>
-  <!-- Sidebar -->
+  <!-- Barra lateral (sidebar) -->
   <aside class="sidebar">
     <div class="sidebar-logo">
+      <!-- Aquí podrías poner un logo o simplemente texto -->
       <h2>Mi Logo</h2>
     </div>
     <nav class="sidebar-nav">
       <ul>
-        <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="../index.html"><i class="fas fa-home"></i> Inicio</a></li>
         <li><a href="propiedades.html"><i class="fas fa-building"></i> Propiedades</a></li>
         <li><a href="Clientes.html"><i class="fas fa-users"></i> Clientes</a></li>
         <li><a href="Marketing.html"><i class="fas fa-chart-line"></i> Marketing</a></li>
@@ -28,42 +29,41 @@
     </nav>
   </aside>
 
-  <!-- Main Content -->
+  <!-- Contenido principal -->
   <main class="main-content">
-    <!-- Top Bar -->
+    <!-- Barra superior (top bar) -->
     <header class="top-bar">
-      <div class="bienvenido">Hipoteca</div>
-      <div class="iniciar-sesion" id="userContainer">
-        <a href="../html/login.html">Iniciar Sesión</a>
-      </div>
+      <div class="bienvenido">Calculadora de Hipoteca</div>
     </header>
+
+    <section class="content-section">
+      <h1>Calcula tu Pago Mensual</h1>
+
+      <!-- Formulario de la calculadora -->
+      <form id="hipotecaForm">
+        <label for="precio">Precio de la Propiedad:</label>
+        <input type="number" id="precio" placeholder="Precio de la propiedad" required>
+
+        <label for="enganche">Pago Inicial:</label>
+        <input type="number" id="enganche" placeholder="Pago inicial" required>
+
+        <label for="interes">Tasa de Interés Anual (%):</label>
+        <input type="number" id="interes" step="0.01" placeholder="Tasa de interés" required>
+
+        <label for="plazo">Plazo (años):</label>
+        <input type="number" id="plazo" placeholder="Plazo en años" required>
+
+        <button type="submit">Calcular</button>
+      </form>
+
+      <!-- Resultado -->
+      <div id="resultado">
+        <h2>Pago Mensual: <span id="pagoMensual">0</span></h2>
+      </div>
+    </section>
   </main>
 
-  <!-- Modal para confirmar cierre de sesión -->
-  <div id="logoutModal" class="modal-overlay">
-    <div class="modal-contenedor">
-      <h2>Cerrar Sesión</h2>
-      <p>¿Deseas cerrar sesión?</p>
-      <div class="modal-footer">
-        <button id="logoutConfirm" class="btn-agregar-prop">Sí</button>
-        <button id="logoutCancel" class="btn-cerrar">No</button>
-      </div>
-    </div>
-  </div>
-  <div id="logoutModal" class="modal-overlay">
-    <div class="modal-contenedor">
-      <h2>Cerrar Sesión</h2>
-      <p>¿Deseas cerrar sesión?</p>
-      <div class="modal-footer">
-        <!-- Usamos las clases de estilo que ya tienes -->
-        <button id="logoutConfirm" class="btn-agregar-prop">Sí</button>
-        <button id="logoutCancel" class="btn-cerrar">No</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Script -->
-  <script src="../js/sesion.js"></script>
+  <!-- Enlace al archivo JS para calcular la hipoteca -->
+  <script src="../js/calculadoraHipoteca.js"></script>
 </body>
-
 </html>
